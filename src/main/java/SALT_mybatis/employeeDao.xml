@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+
+	<insert id="Empcreate" parameterType="map">
+		insert into employee values
+		(#{empno},#{username}, #{password},#{deptno,
+		jdbcType=NUMERIC},
+		#{content, jdbcType=NUMERIC})
+	</insert>
+
+	<select id="login" parameterType="map" resultType="String">
+		select
+		username from employee where empno=#{empno} and password=#{password}
+	</select>
+	<select id="booseolist" resultType="map">
+		select * from booseo
+	</select>
+
+	<!--employee 전체 list -->
+	<select id="employeelist" resultType="map">
+		select * from employee
+	</select>
+
+	<update id='Empdeptupdate' parameterType='map'>
+		update employee set
+		deptno =
+		(select deptno from booseo where deptname=#{deptname})
+		where
+		empno=#{empno}
+	</update>
+
+	<select id='Empbooseolist' resultType='booseo'>
+		select deptname from
+		booseo
+	</select>
+
+	<update id='employeeupdate' parameterType='map'>
+		update employee set
+		deptno=#{deptno} where empno=#{empno}
+	</update>
+
+	<select id="empname" parameterType="String" resultType="String">
+		select
+		username from employee where empno=#{empno}
+	</select>
+
+	<select id="ilist" resultType="map">
+		select kind, connumber, content,
+		conscore from inseong
+	</select>
+
+	<select id="slist" resultType="map">
+		select * from silmoo
+	</select>
+
+	<update id='updatecontent' parameterType='map'>
+		update employee set
+		content=#{content, jdbcType=VARCHAR} where
+		empno=#{empno,
+		jdbcType=VARCHAR}
+	</update>
+
+	<select id="resultlist" parameterType="String"
+		resultType="String">
+		select empno from result where empno=#{empno}
+	</select>
+
+	<insert id='resultinput' parameterType='map'>
+		insert into result values
+		(#{empno}, #{gong}, #{young}, #{poom}, #{sil},
+		#{pilot}, #{gae},
+		#{seang}, #{kwan})
+	</insert>
+
+	<update id='resultupdate' parameterType='map'>
+		update result set
+		empno=#{empno}, gong=#{gong}, young=#{young},
+		poom=#{poom}, sil=#{sil},
+		pilot=#{pilot}, gae=#{gae}, seang=#{seang},
+		kwan=#{kwan} where
+		empno=#{empno}
+	</update>
+
+	<select id='userscorelist' parameterType='String'
+		resultType='String'>
+		select content from employee where empno=#{empno}
+	</select>
+
+	<select id='userscore' parameterType='map' resultType='map'>
+		select
+		b.deptname,gasang.deptno,rank() over(order by gasang.score desc) rank
+		from booseo b,
+		(select * from result unpivot(score for deptno
+		IN(${content}))) gasang
+		where
+		gasang.empno=#{empno} and b.deptno =
+		gasang.deptno
+	</select>
+
+
+	<select id='booseouserlist' parameterType='String'
+		resultType='map'>
+		select b.deptname,e.username, e.content from employee e,
+		booseo b where e.deptno=b.deptno and e.deptno=#{deptno}
+	</select>
+
+	<select id='deptnameString' resultType='String'>
+		select
+		listagg(DEPTNO,',')within group(order by deptno) a from booseo
+	</select>
+	<insert id='booseochooga' parameterType='map'>
+		insert into booseo
+		VALUES(#{deptno},#{deptname})
+	</insert>
+	<select id='munjaelist' parameterType='String' resultType='map'>
+		select * from silmoo where deptno=#{deptno}
+	</select>
+
+	<update id='changescore' parameterType='map'>
+		update silmoo set
+		conscore=#{conscore} where deptno=#{deptno} and
+		content=#{content}
+	</update>
+
+	<delete id='munjaedelete' parameterType='map'>
+		delete from silmoo where
+		deptno=#{deptno} and content=#{content}
+	</delete>
+
+	<insert id='munjaechooga' parameterType='map'>
+		insert into
+		silmoo(deptno,content,conscore,kind)
+		values(#{deptno},#{content},#{conscore},#{kind})
+	</insert>
+
+	<select id='resultbooseochooga' parameterType='String'>
+		alter table result
+		add ${deptno} NUMBER(30)
+	</select>
+
+	<select id='scon' resultType='String'>
+		select content from silmoo
+	</select>
+
+	<select id='sscore' resultType='String'>
+		select conscore from silmoo
+	</select>
+
+	<select id='sdeptno' resultType='String'>
+		select deptno from silmoo
+	</select>
+
+	<select id="booseocount" resultType="int">
+		select count(deptno) from
+		booseo
+	</select>
+
+	<insert id='resultinput2' parameterType='String'>
+		insert into result
+		(empno) values(#{empno})
+	</insert>
+
+	<update id='resultinput3' parameterType='map'>
+		update result set
+		${deptno}=#{score} where ${deptno} is null and
+		empno=#{empno}
+	</update>
+
+	<update id="resultupdate2" parameterType='map'>
+		update result set
+		${deptno} = ${deptno} + #{score} where empno=#{empno}
+	</update>
+
+	<delete id="resultdelete" parameterType='String'>
+		delete from result where
+		empno=#{empno}
+	</delete>
+
+	<select id="booseodeptnolist" resultType="String">
+		select deptno from
+		booseo
+	</select>
+
+	<update id='inseongtestscorechange' parameterType='map'>
+		update inseong set
+		conscore = #{conscore} where content=#{content}
+	</update>
+	<delete id='inseongtestdelete' parameterType='String'>
+		delete from inseong where content=#{content}
+	</delete>
+	<insert id='inseongtestchooga' parameterType='map'>
+		insert into inseong(content,conscore,kind) values(#{content},#{conscore},#{kind})
+	</insert>
+	
+   <select id="mresultlist" parameterType="String" resultType="String">
+   select empno from mresult where empno=#{empno}
+   </select>
+   
+   <insert id='mresultinput' parameterType='String'>
+   insert into mresult (empno) values(#{empno})
+   </insert>
+   
+   <delete id="mresultdelete" parameterType='String'>
+   delete from mresult where empno=#{empno}
+   </delete>
+   
+   <select id="mcontentlist" parameterType="map" resultType="String">
+   select ${deptno} from mresult where empno=#{empno}
+   </select>
+   
+   <update id="mcontentinput1" parameterType="map">
+   update mresult set ${deptno}=#{content} where ${deptno} is null and EMPNO=#{empno}
+   </update>
+   
+   <update id="mcontentinput2" parameterType="map">
+   update mresult set ${deptno} = ${deptno} || #{content} where EMPNO=#{empno}
+   </update>
+ 
+ 
+    <select id='skind' resultType='String'>
+      select kind from silmoo
+   </select>
+   
+   <select id='tdept' parameterType='String' resultType='String'>
+      select deptno from booseo where deptname=#{deptname}
+   </select>
+   
+   <select id='mscore' parameterType='map' resultType='String'>
+      select ${deptno} from mresult where empno=#{empno}
+   </select>
+   <select id='mresultbooseochooga' parameterType='String'>
+   alter table mresult add ${deptno} VARCHAR2(4000)
+   </select>
+
+
+
+</mapper>

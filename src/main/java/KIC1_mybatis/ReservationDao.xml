@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="reservation">
+
+<select id="cafeSelectOne" parameterType="int" resultType="cafe">
+select * from cafe where cafenum = #{cafenum}
+</select>
+
+<select id="cafeList" parameterType="map" resultType="cafe">
+select * from cafe where cafekind = #{cafekind} and substr(cafelocation,0,2) = #{cafelocation}
+</select>
+
+<select id="menuList" parameterType="int" resultType="menu">
+select * from menu where cafenum = #{cafenum}
+</select>
+
+<select id="reservationInsert" parameterType="reservation">
+insert into reservation values (#{reservenum},#{cafenum}, #{guesttel}, #{guestpass},#{reservetime},#{reservedate}, #{reservepeople})
+</select>
+
+<delete id="reservationDelete" parameterType="int">
+delete from reservation where reservenum = #{reservenum}
+</delete>
+
+<select id="selectOneReserve" parameterType="int" resultType="reservation">
+select * from reservation where reservenum = #{reservenum}
+</select>
+
+<select id="selectCafenum" parameterType="String" resultType="int">
+select cafenum from cafe where cafename = #{cafename}
+</select>
+
+<select id="reserveList" parameterType="map" resultType="reservation">
+select * from reservation where cafenum = #{cafenum} and guesttel = #{guesttel} and guestpass = #{guestpass} and reservedate> sysdate
+</select>
+
+<select id="seqNextval" resultType="int">
+select reservenum.nextval from dual
+</select>
+
+<select id="selectReview" parameterType="int" resultType="review">
+select * from review where cafenum = #{cafenum}
+</select>
+
+<select id="selectSeat" parameterType="int" resultType="int">
+select cafetotalseat from cafe where cafenum = #{cafenum}
+</select>
+
+<select id="checkSeat" parameterType="map" resultType="int">
+select sum(reservepeople) from reservation where cafenum = #{cafenum} and reservetime = #{reservetime} and reservedate = #{reservedate}
+</select>
+
+
+
+</mapper>

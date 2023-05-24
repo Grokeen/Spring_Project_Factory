@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 쿼리 -->			<!-- 마이바티스 알리아스랑동일 -->
+<mapper namespace="manage">
+	<!-- 리스트 뽑기 -->
+	<select id="MareserveList" resultType="reservation">
+		select * from reservation
+	</select>
+
+	<delete id="deletereserve">
+		delete from reservation where sysdate-reservedate >30
+	</delete>
+
+	<select id="seqNextval" resultType="int">
+		select reviewseq.nextval from dual
+	</select>
+
+
+	<select id="reviewCount"  resultType="int">
+		select count(*) count from review
+	</select>
+	<select id="list" parameterType="map" resultType="review">
+		select * from ( select rownum rnum ,a.*
+		from (select * from review order by ref desc ,
+		refstep) a )
+		where rnum between #{start} and #{end}
+	</select>
+	<select id="selectOne" parameterType="int" resultType="review">
+		select * from review where reviewnum =#{reviewnum}
+	</select>
+
+	<update id="readcntadd" parameterType="int">
+		update review set readcnt = readcnt + 1 where reviewnum = #{reviewnum}
+	</update>
+
+	<update id="refstepadd" parameterType="map">
+		update review set refstep = refstep + 1 + where ref = #{ref} and refstep >
+		#{refstep}
+	</update>
+
+
+	<delete id="deletereview" parameterType="int">
+		delete from review where reviewnum=#{reviewnum}
+	</delete>
+	
+	<select id="adminsearch" parameterType="String" resultType="reservation">
+      select * from reservation where guesttel= #{guesttel}
+   </select>
+   
+   <select id="adminsearch2" parameterType="int"
+      resultType="review">
+      select * from review where reviewnum=#{reviewnum}
+   </select>
+</mapper>

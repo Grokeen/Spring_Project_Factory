@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /src/mapperXML/mybatis-config.xml -->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<properties resource="SALT_mybatis/mybatis.properties"/>
+	
+	<typeAliases>
+	<typeAlias type="SALT_model.Employee" alias="employee"/>
+	<typeAlias type="SALT_model.Booseo" alias="booseo"/>
+	<typeAlias type="SALT_model.Inseong" alias="inseong"/>
+	<typeAlias type="SALT_model.Result" alias="result"/>
+	<typeAlias type="SALT_model.Silmoo" alias="silmoo"/>
+
+	</typeAliases>
+	
+	<environments default="development">
+	<environment id="development">
+	<transactionManager type="JDBC"/>
+	<dataSource type="POOLED">
+	<property name="driver" value="${driver}"/>
+	<property name="url" value="${url}"/>
+	<property name="username" value="${username}"/>
+	<property name="password" value="${password}"/>
+	</dataSource>
+	</environment>
+	</environments>
+	
+	<mappers>	
+	
+	
+	<mapper resource="SALT_mybatis/employeeDao.xml"/>
+	</mappers>
+	
+	
+</configuration>

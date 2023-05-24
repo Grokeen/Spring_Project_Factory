@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>myprojectSpring</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>/KIC1/view/reservation/*</url-pattern>
+			<url-pattern>/KIC1/view/orner/*</url-pattern>
+			<url-pattern>/KIC1/view/admin/*</url-pattern>
+			<url-pattern>/KIC1/view/review/*</url-pattern>
+			<url-pattern>/KIC1/view/addpage/*</url-pattern>
+
+			<include-prelude>/KIC1/common/header.jsp</include-prelude>
+			<include-coda>/KIC1/common/footer.jsp</include-coda>
+		</jsp-property-group>
+
+		<jsp-property-group>
+			<url-pattern>/SALT/view/login/*</url-pattern>
+			<url-pattern>/SALT/view/admin/*</url-pattern>
+			<url-pattern>/SALT/view/user/*</url-pattern>
+
+			<include-prelude>/SALT/common/header.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+
+
+	<servlet>
+		<servlet-name>springPro</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springPro</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+</web-app>

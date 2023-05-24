@@ -1,0 +1,5 @@
+.xans-layout-searchside { margin:0 0 50px; }
+.xans-layout-searchside fieldset { padding:0px; line-height:0; }
+.xans-layout-searchside #keyword  { diplay:block; width:130px; height:16px; border-width: 0 0 1px; border-style: none none solid; border-image:none; background: none repeat scroll 0% 0% transparent; vertical-align:middle; margin: 0 0 15px; border-color: -moz-use-text-color -moz-use-text-color #aaa; -moz-border-left-colors:none; -moz-border-top-colors:none; -moz-border-bottom-colors:none; -moz-border-right-colors:none;}
+.xans-layout-searchside a{font-size:12px; font-style:italic; font-family:Times New Roman; color:#888;}
+

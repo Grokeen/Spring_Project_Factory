@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+<select id="seqNextval" resultType="int">
+select reviewnum.nextval from dual
+</select>
+
+<insert id="insertReview" parameterType="review">
+insert into review values
+(#{reviewnum},#{cafenum},#{name}, #{guesttel} , #{reviewtitle},#{reviewcontent},#{file1},#{score},sysdate,
+0,#{ref},#{reflevel},#{refstep})
+</insert>
+
+<select id="reviewCount" parameterType="int" resultType="int">
+select count(*) from review where cafenum=#{cafenum}
+</select>
+<select id="list" parameterType="map" resultType="review">
+select * from ( select rownum rnum ,a.*
+from (select * from review where cafenum = #{cafenum} order by ref desc , refstep) a )
+where rnum between #{start} and #{end}
+</select>
+<select id="selectOne" parameterType="int" resultType="review">
+select * from review where reviewnum =#{reviewnum}
+</select>
+
+<update id="readcntadd" parameterType="int">
+update  review set readcnt = readcnt + 1  where reviewnum = #{reviewnum}
+</update>
+
+<update id="refstepadd" parameterType="map">
+update  review set refstep = refstep + 1 +  where ref = #{ref} and refstep > #{refstep}
+</update>
+
+<update id="update" parameterType="review">
+update review set name=#{name}, reviewtitle= #{reviewtitle}, reviewcontent= #{reviewcontent}, file1= #{file1}  where reviewnum= #{reviewnum}
+</update>
+
+<delete id="delete" parameterType="int">
+delete from review where reviewnum=#{reviewnum}
+</delete>
+
+<select id="con" parameterType="map" resultType="reservation">
+select * from reservation where guesttel = #{guesttel} and cafenum = #{cafenum} and guestpass = #{guestpass}
+</select>
+
+<select id="score" parameterType="int" resultType="double">
+select avg(score) from review where cafenum = #{cafenum}
+</select>
+
+<select id="searchReview" parameterType="map" resultType="review">
+select * from review where name = #{name} and cafenum=#{cafenum}
+</select>
+</mapper>

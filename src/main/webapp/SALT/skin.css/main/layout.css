@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+/* Layout */
+/*#header { background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/layout/bg_body.gif") repeat-x 0 0;}
+#header .inner { position:relative; width:1160px;  margin:0 auto; *zoom:1; }
+#header .inner:after { content:""; display:block; clear:both; }
+#header .topArea { height:112px; padding:83px 0 0; text-align:center; *zoom:1; }
+#header .topArea:after { content:""; display:block; clear:both; }
+#header .special { float:left; border-left:1px solid #d8d8d8; }
+#header .special li { float:left; }
+#header .special a { display:block; height:20px; padding:16px 15px 9px; border-right:1px solid #d8d8d8; color:#353535; text-decoration:none; }
+#header .special a:hover { color:#008bcc; padding-bottom:7px; border-bottom:2px solid #008bcc; }
+#header .link { position:absolute; left:0; top:0; height:35px; line-height:35px; }
+#header .link > a,
+#header .link > span { float:left; }
+#header .link > a { margin:0 9px 0 0; padding:0 10px 0 0; color:#666; text-decoration:none; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/layout/ico_util2.gif") no-repeat 100% 12px; }
+#header .link > span img { vertical-align:middle; }
+#header .link .xans-layout-bookmark span { padding-left:17px; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/layout/ico_bookmark.gif") no-repeat 0 1px; }*/
+
+#wrap { position:relative;width:1160px; margin:0px; padding:0px}
+#container { width:100%;  background:url("/web/upload/honeydew/img/left_bg.jpg") repeat-y 0px 0px transparent; margin:0px; padding:0px; }
+#container #container_left {margin:90px 0px 0px 28px; width:192px; overflow:hidden; float:left;  }
+#container:after { content:""; display:block; clear:both; }
+#container #contents {float:right; width:900px; margin:90px 0 0;}
+<!--#contents { float:left; width:900px; margin:90px 0px 0px; }-->
+.stateelse {font-size:10px;}
+
+.catemenu01 {margin:0px; font-size:11px; text-transform:uppercase; line-height:17px; font-family:Arial;}
+.catemenu02 {margin:30px 0px 40px; font-size:11px; text-transform:uppercase; line-height:17px; font-family:Arial;}
+.board {margin:0px 0px 60px; font-size:13px;  line-height:15px; font-family:Times New Roman;}
+.info {margin:0px 0px 50px; line-height:19px; font-family:Arial;}
+.info ul {font-size:11px; margin-top:15px; margin-bottom:10px;}
+.info ul li.txt0 {padding-bottom:5px;}
+.info ul li.txt {font-size:11px;}
+.info ul li.txt1 {font-size:10px;}
+.info ul li.txt3 {font-size:11px;  padding-top:3px;}
+.sns {margin:0px 0px 90px; }
+.sns li {display:inline;}
+.callcenter {margin:0px; line-height:16px; font-family:Arial;}
+.callcenter b {font-weight:bold; font-size:13px; font-family:Times New Roman;}
+.banker {margin:5px 0 0; line-height:15px;}
+.bottom {border-top:1px solid #aaa; margin:20px 0px; padding:0px;}
+.bot01 {margin:40px 0 0 -10px; overflow:hidden; height:50px; font-size:12px; font-style:italic; font-family:Times New Roman; }
+.bot01 a {margin:0 10px; }
+.bot02 {margin:0px; font-size:11px; line-height:17px;}
+.bot03 {margin:15px 0 0; font-size:11px; font-family:Times New Roman; }
+#mainbanner {position:relative; float:left; width:440px;}
+#mainshowcase {postion:relative; overflow:hidden; margin:0 0 20px; height:310px; float:right;}
+#mainbbslist {overflow:hidden; clear:both; width:100%; margin: 0 0 40px 1px;}
+
+
+
+#footer { position:relative; overflow:hidden; width:100%; margin:100px 0 0; padding:0px; height:280px; font-size:11px }
+#footer .inner { overflow:hidden; position:relative; width:1218px; margin:40px auto 0; *zoom:1; }
+
+/* Main */
+#boardArea { overflow:hidden; margin:50px 0 0; border-top:1px solid #d8d8d8; }
+#bannerArea { margin:22px 0 0; }
+#bannerArea h2 { margin:0 0 16px; font-weight:normal; font-size:20px; font-family:Arial, "돋움", Dotum, sans-serif; color:#2e2e2e; text-align:center; }
+
+/* 탐색경로바 */
+.path { overflow:hidden; height:30px; line-height:30px;}
+.path h2 { overflow:hidden; position:absolute; width:0; height:0; white-space:nowrap; text-indent:100%; }
+.path ol { float:right; }
+.path li.first {background:none repeat scroll 0% 0% transparent;}
+.path li { float:left; padding:0 0 0 14px; margin:0 0 0 10px; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/common/ico_path.gif") no-repeat 0 10px; font-family:arial;}
+.path li:first-child { background:none ; }
+.path li a { color:#000; font-family:arial;  }
+.path li a:hover { color:#888; }
+.path li strong,
+.path li strong a { color:#2e2e2e; }
+
+
+/* 타이틀 */
+.titleArea { min-height:30px; margin:10px 0 20px; border-bottom:0px solid #e8e8e8; }
+.titleArea h2 { display:inline-block; text-decoration:underline; font-weight:normal; font-size:16px; font-family:times new roman; font-style:italic; margin:0 0 30px; }
+.titleArea p { display:inline-block; margin:0 0 0 6px; padding:0 0 0 10px; color:#939393; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/common/ico_title.gif") no-repeat 0 0; *display:inline; *zoom:1; }
+.titleArea ul { padding:5px 0; color:#939393; line-height:18px; }
+.titleArea ul li { padding:0 0 0 9px; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/common/ico_info.gif") no-repeat 4px 7px; }
+
+/* 이용안내 */
+.help { margin:40px 0 0; border:1px solid #d6d4d4; line-height:18px; }
+.help h3 { padding:9px 0 6px 10px; border-bottom:1px solid #e8e7e7; color:#353535; font-size:12px; background:#fbfbfb; }
+.help .content { padding:0 9px 12px; }
+.help .content h4 { margin:22px 0 -4px; color:#000; font-size:12px; font-weight:normal; }
+.help .content h4:first-child { margin-top:13px; }
+.help .content p { margin:15px 0 0 10px; color:#757575; }
+.help .content ul { margin:15px 0 0 11px; }
+.help .content li { padding:0 0 0 25px; color:#757575; background:url("http://img.echosting.cafe24.com/skin/base_ko_KR/common/ico_number.png") no-repeat; }
+.help .content li.item1 { background-position:-484px 0; }
+.help .content li.item2 { background-position:-434px -100px; }
+.help .content li.item3 { background-position:-384px -200px; }
+.help .content li.item4 { background-position:-334px -300px; }
+.help .content li.item5 { background-position:-284px -400px; }
+.help .content li.item6 { background-position:-234px -500px; }
+.help .content li.item7 { background-position:-184px -600px; }
+.help .content li.item8 { background-position:-134px -700px; }
+.help .content li.item9 { background-position:-84px -800px; }
+.help .content li.item10 { background-position:-34px -900px; }
+
+/* 공급사 메인 */
+.supplyVisual { margin:0 0 37px 0; }
+.supplyVisual img { max-width:1014px; max-height:359px;}
+
+/* 게시판 메인 */
+.boardMain { overflow:hidden; *zoom:1; }
+.boardMain td img { vertical-align:middle; margin:1px; }
+.boardMain .board { margin:0 0 65px; }
+.boardMain .leftArea { float:left; width:50%; }
+.boardMain .leftArea .board { margin:0 23px 65px 0; }
+.boardMain .rightArea { float:right; width:50%; }
+.boardMain .rightArea .board { margin:0 0 65px 23px; }
+
+/* 마이쇼핑 메인 */
+#myshopMain { margin:30px 0 0 230px;  border:1px solid #e9e9e9; width:470px; height:770px;  }
+#myshopMain .shopMain { height:90px; padding:0px 0 0 30px;  }
+#myshopMain .shopMain h3 { padding:0 0 5px; font-size:14px; color:#000; font-weight:normal;font-style:italic; font-family:times new roman; }
+#myshopMain .shopMain h3 strong { font-size:17px; padding:0 5px 0 0; font-weight:normal;font-style:italic; font-family:times new roman; }
+#myshopMain .shopMain h3 a:hover { text-decoration:none; }
+#myshopMain .shopMain p a { font-size:11px; line-height:18px; color:#8f8f8f; }
+#myshopMain .shopMain.order ul { padding-bottom:20px; padding-top:20px;display:inline-block;  }
+#myshopMain .shopMain.order ul li {border-top:1px solid #e9e9e9; padding-bottom:20px;padding-top:20px; }
+#myshopMain .shopMain.order p.top {font-size:23px; font-family:times new roman; font-style:italic; text-align:center; padding-bottom:20px;}
+
+/* 퀵뷰 모달 */
+#modalBackpanel { display:none; position:absolute; top:0; left:0; z-index:10000; width:100%; height:100%; background:#000; }
+#modalContainer { display:none; position:absolute; top:100px; left:100px; z-index:10001; width:975px; height:720px; border:1px solid #333; background:#fff; }
+#modalContainer #modalContent { width:100%; height:100%; }

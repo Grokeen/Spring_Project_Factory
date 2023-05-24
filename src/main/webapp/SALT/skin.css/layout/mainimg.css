@@ -1,0 +1,88 @@
+.fader{
+    position: relative;
+    overflow: hidden;
+    width: 440px;
+    height: 310px;
+} 
+ 
+.fader .slide{
+    position: absolute;
+    width: 440px;
+    height: 310px;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+}
+ 
+.fader img.slide{
+    height: auto;
+}
+
+
+
+
+.fader .prev,
+.fader .next{
+  position: absolute;
+  height: 80px;
+  width: 40px;
+  font: 100px 굴림;
+  text-align: center;
+  color: #ffffff;
+  top: 50%;
+  left: 0;
+  z-index: 4;
+  margin-top: -25px;
+  cursor: pointer;
+  opacity: 0.1;
+  transition: all 500ms;
+}
+
+.fader .prev:hover,
+.fader .next:hover{
+  opacity: 0.7;
+}
+
+.fader .next{
+  left: auto;
+  right: 0;
+}
+
+.fader .pager_list{
+  position: absolute;
+  width: 100%;
+  left: -10px;
+  bottom: 10px;
+  text-align: right;
+  z-index: 4;
+ }
+
+.fader .pager_list li{
+  display: inline-block;
+  zoom:1; *display: inline; 
+  width: 50px;    
+  height: 3px;
+  margin: 0 3px;
+  background: #fff;
+  opacity: .4;
+  text-indent: -999px;
+  cursor: pointer;
+  transition: all 150ms;
+  text-align:left;
+}
+
+.fader .pager_list li:hover,
+.fader .pager_list li.active{
+  opacity: .5;background: #868580;
+}
+
+
+.fader .pager_list li:hover,
+.fader .pager_list li.active{
+  opacity: .5;background: #868580;
+}
+
+
+
+.fader .pager_list li:last-child {display:none;}
+
